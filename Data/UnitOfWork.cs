@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Data.Extensao;
 using Data.Provider;
 using Domain.Interfaces;
 
@@ -16,6 +17,7 @@ namespace Data
         public UnitOfWork()
         {
             _connection = SqlServerProvider.CriarConexao();
+            _connection.DefinirTipoBancoDados(Domain.Enumeradores.TipoBancoDados.SQLServer);
         }
 
         public IDbConnection Connection => _connection;

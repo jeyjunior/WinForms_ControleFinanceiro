@@ -19,6 +19,7 @@ namespace ControleFinanceiro
             Application.SetCompatibleTextRenderingDefault(false);
 
             Bootstrap.Iniciar();
+            ConfiguracaoServicos.Iniciar();
 
             Application.Run(new ControleFinanceiro());
         }

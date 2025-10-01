@@ -16,6 +16,12 @@ namespace Data.Extensao
     {
         public static TipoBancoDados TipoBancoDados { get; set; }
 
+        public static void DefinirTipoBancoDados(this IDbConnection connection, TipoBancoDados tipoBancoDados)
+        {
+            TipoBancoDados = tipoBancoDados;
+            SQLTradutorFactory.TipoBancoDados = tipoBancoDados;
+        }
+
         public static bool VerificarTabelaExistente<T>(this IDbConnection connection)
         {
             Type entidade = typeof(T);
