@@ -5,12 +5,11 @@ using Domain.Atributos;
 
 namespace Domain.Entity
 {
-    [Entidade("TipoTransacao")]
-    public class TipoTransacao
+    [Entidade("TipoInvestimento")]
+    public class TipoInvestimento
     {
         [ChavePrimaria]
-        public int PK_TipoTransacao { get; set; }
-
+        public int PK_TipoInvestimento { get; set; }
         [Obrigatorio, TamanhoString(100)]
         public string Nome { get; set; }
     }

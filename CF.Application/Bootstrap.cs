@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Domain.Interfaces;
 using InfraData;
 using InfraData.Repository;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace CF.Application
 {
@@ -40,12 +40,20 @@ namespace CF.Application
 
         private static void RegistrarRepositorios(IServiceCollection services)
         {
+            services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+            services.AddSingleton<ITipoEntidadeFinanceiraRepository, TipoEntidadeFinanceiraRepository>();
+            services.AddSingleton<ICategoriaRepository, CategoriaRepository>();
             services.AddSingleton<ITipoTransacaoRepository, TipoTransacaoRepository>();
+            services.AddSingleton<ITipoInvestimentoRepository, TipoInvestimentoRepository>();
+            services.AddSingleton<IAtivoFinanceiroRepository, AtivoFinanceiroRepository>();
+            services.AddSingleton<IEntidadeFinanceiraRepository, EntidadeFinanceiraRepository>();
+            services.AddSingleton<ITransacaoRepository, TransacaoRepository>();
+            services.AddSingleton<IDetalheInvestimentoRepository, DetalheInvestimentoRepository>();
+            services.AddSingleton<IProventoRepository, ProventoRepository>();
         }
 
         private static void RegistrarViewModels(IServiceCollection services)
         {
-            //services.AddSingleton<IMainWindowViewModel, MainWindowViewModel>();
         }
     }
 }

@@ -5,7 +5,7 @@ using Domain.Entity;
 
 namespace Domain.Interfaces
 {
-    public interface ITipoTransacaoRepository : IRepository<TipoTransacao>
+    public interface IEntidadeFinanceiraRepository : IRepository<EntidadeFinanceira>
     {
 
     }

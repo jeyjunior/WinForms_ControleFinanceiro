@@ -1,9 +1,15 @@
-﻿using Data.Extensao;
+﻿using Data;
+using Data.Extensao;
+using Domain.Atributos;
 using Domain.Entity;
 using Domain.Interfaces;
+using InfraData.Repository;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CF.Application
@@ -16,18 +22,56 @@ namespace CF.Application
         }
         public static void RegistrarEntidades()
         {
-            var uow = Bootstrap.ServiceProvider.GetRequiredService<IUnitOfWork>();
+            try
+            {
+                using (var uow = new UnitOfWork())
+                {
+                    var entidades = ObterEntidadesMapeadas();
+                    var tabelasExistentes = uow.Connection.VerificarEntidadeExiste(entidades);
 
-            //uow.Connection.CriarTabela(typeof(Usuario));
-            //uow.Connection.CriarTabela(typeof(TipoEntidadeFinanceira));
-            //uow.Connection.CriarTabela(typeof(Categoria));
-            //uow.Connection.CriarTabela(typeof(EntidadeFinanceira));
-            uow.Connection.CriarTabela(typeof(TipoTransacao));
-            //uow.Connection.CriarTabela(typeof(Transacao));
-            //uow.Connection.CriarTabela(typeof(TipoInvestimento));
-            //uow.Connection.CriarTabela(typeof(AtivoFinanceiro));
-            //uow.Connection.CriarTabela(typeof(DetalheInvestimento));
-            //uow.Connection.CriarTabela(typeof(Provento));
+                    if (tabelasExistentes.Any(i => !i.Existe))
+                    {
+                        try
+                        {
+                            uow.Begin();
+
+                            foreach (var entidade in tabelasExistentes.Where(e => !e.Existe))
+                                uow.Connection.CriarTabela(entidade.TipoEntidade, uow.Transaction);
+
+                            uow.Commit();
+                        }
+                        catch (SqlException ex)
+                        {
+                            uow.Rollback();
+                            throw new Exception("Erro ao criar as entidades no banco de dados", ex);
+                        }
+                        catch (Exception ex)
+                        {
+                            uow.Rollback();
+                            throw new Exception("Erro inesperado ao criar as entidades", ex);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao tentar gerar tabelas na base de dados.");
+            }
+        }
+
+        private static IEnumerable<Type> ObterEntidadesMapeadas()
+        {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
+
+            if (!assemblies.Any(a => a.FullName.Contains("Domain")))
+            {
+                var domainAssembly = Assembly.Load("Domain");
+                assemblies.Add(domainAssembly);
+            }
+
+            return assemblies
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.GetCustomAttribute<EntidadeAttribute>() != null && t.IsClass && !t.IsAbstract);
         }
     }
 }

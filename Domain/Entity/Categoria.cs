@@ -11,10 +11,10 @@ namespace Domain.Entity
         [ChavePrimaria]
         public int PK_Categoria { get; set; }
 
-        [Obrigatorio]
+        [Obrigatorio, TamanhoString(100)]
         public string Nome { get; set; }
 
-        [Obrigatorio, Relacionamento("Usuario", "PK_Usuario")]
-        public int FK_Usuario { get; set; }
+        [Relacionamento("Usuario", "PK_Usuario")]
+        public int? FK_Usuario { get; set; }
     }
 }
