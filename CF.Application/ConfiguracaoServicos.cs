@@ -26,31 +26,35 @@ namespace CF.Application
             {
                 using (var uow = new UnitOfWork())
                 {
-                    var entidades = ObterEntidadesMapeadas();
-                    var tabelasExistentes = uow.Connection.VerificarEntidadeExiste(entidades);
+                    if (!uow.Connection.VerificarTabelaExistente<Usuario>())
+                        uow.Connection.CriarTabela(typeof(Usuario));
 
-                    if (tabelasExistentes.Any(i => !i.Existe))
-                    {
-                        try
-                        {
-                            uow.Begin();
+                    if (!uow.Connection.VerificarTabelaExistente<TipoTransacao>())
+                        uow.Connection.CriarTabela(typeof(TipoTransacao));
 
-                            foreach (var entidade in tabelasExistentes.Where(e => !e.Existe))
-                                uow.Connection.CriarTabela(entidade.TipoEntidade, uow.Transaction);
+                    if (!uow.Connection.VerificarTabelaExistente<TipoInvestimento>())
+                        uow.Connection.CriarTabela(typeof(TipoInvestimento));
 
-                            uow.Commit();
-                        }
-                        catch (SqlException ex)
-                        {
-                            uow.Rollback();
-                            throw new Exception("Erro ao criar as entidades no banco de dados", ex);
-                        }
-                        catch (Exception ex)
-                        {
-                            uow.Rollback();
-                            throw new Exception("Erro inesperado ao criar as entidades", ex);
-                        }
-                    }
+                    if (!uow.Connection.VerificarTabelaExistente<TipoEntidadeFinanceira>())
+                        uow.Connection.CriarTabela(typeof(TipoEntidadeFinanceira));
+
+                    if (!uow.Connection.VerificarTabelaExistente<Categoria>())
+                        uow.Connection.CriarTabela(typeof(Categoria));
+
+                    if (!uow.Connection.VerificarTabelaExistente<AtivoFinanceiro>())
+                        uow.Connection.CriarTabela(typeof(AtivoFinanceiro));
+
+                    if (!uow.Connection.VerificarTabelaExistente<EntidadeFinanceira>())
+                        uow.Connection.CriarTabela(typeof(EntidadeFinanceira));
+
+                    if (!uow.Connection.VerificarTabelaExistente<Transacao>())
+                        uow.Connection.CriarTabela(typeof(Transacao));
+
+                    if (!uow.Connection.VerificarTabelaExistente<DetalheInvestimento>())
+                        uow.Connection.CriarTabela(typeof(DetalheInvestimento));
+
+                    if (!uow.Connection.VerificarTabelaExistente<Provento>())
+                        uow.Connection.CriarTabela(typeof(Provento));
                 }
             }
             catch (Exception ex)

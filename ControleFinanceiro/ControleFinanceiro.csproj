@@ -249,6 +249,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telas\Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Categoria.Designer.cs">
+      <DependentUpon>Categoria.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +267,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Telas\Categoria.resx">
+      <DependentUpon>Categoria.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -276,9 +285,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CF.Application\CF.Application.csproj">
-      <Project>{91280cbe-9574-4961-9680-348105fe7fcd}</Project>
-      <Name>CF.Application</Name>
+    <ProjectReference Include="..\CF.ViewModel\CF.ViewModel.csproj">
+      <Project>{3fc5e954-03ea-4e05-aa7a-8cc51e93e251}</Project>
+      <Name>CF.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\CF.Domain.csproj">
+      <Project>{145586c0-8ec1-465f-8a1b-1da1b893ec68}</Project>
+      <Name>CF.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

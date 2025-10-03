@@ -11,9 +11,9 @@ namespace Domain.Entity
         [ChavePrimaria]
         public long PK_Provento { get; set; }
         [Obrigatorio, Relacionamento("Transacao", "PK_Transacao")]
-        public int FK_Transacao { get; set; }
+        public long FK_Transacao { get; set; }
         [Obrigatorio, Relacionamento("AtivoFinanceiro", "PK_AtivoFinanceiro")]
-        public int FK_AtivoFinanceiro { get; set; }
+        public long FK_AtivoFinanceiro { get; set; }
         [TamanhoDecimal(18, 2)]
         public decimal QuantidadeCotas { get; set; }
         [TamanhoDecimal(18, 2)]

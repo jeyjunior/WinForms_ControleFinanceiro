@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CF.Application;
 
 namespace ControleFinanceiro
 {
@@ -18,8 +17,7 @@ namespace ControleFinanceiro
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Bootstrap.Iniciar();
-            ConfiguracaoServicos.Iniciar();
+            CF.ViewModel.Bootstrap.Iniciar();
 
             Application.Run(new ControleFinanceiro());
         }

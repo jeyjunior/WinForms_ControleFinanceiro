@@ -12,34 +12,10 @@ namespace CF.Application
 {
     public static class Bootstrap
     {
-        public static IServiceProvider ServiceProvider { get; set; }
-
-        public static void Iniciar()
-        {
-            try
-            {
-                var host = Host.CreateDefaultBuilder()
-                    .ConfigureServices((context, services) => RegistrarServicos(services))
-                    .Build();
-
-                ServiceProvider = host.Services;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Erro na inicialização: {ex}");
-            }
-        }
-
-        private static void RegistrarServicos(IServiceCollection services)
+        public static void RegistrarRepositorios(IServiceCollection services)
         {
             BootstrapData.RegistrarServicos(services);
 
-            RegistrarRepositorios(services);
-            RegistrarViewModels(services);
-        }
-
-        private static void RegistrarRepositorios(IServiceCollection services)
-        {
             services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
             services.AddSingleton<ITipoEntidadeFinanceiraRepository, TipoEntidadeFinanceiraRepository>();
             services.AddSingleton<ICategoriaRepository, CategoriaRepository>();
@@ -50,10 +26,6 @@ namespace CF.Application
             services.AddSingleton<ITransacaoRepository, TransacaoRepository>();
             services.AddSingleton<IDetalheInvestimentoRepository, DetalheInvestimentoRepository>();
             services.AddSingleton<IProventoRepository, ProventoRepository>();
-        }
-
-        private static void RegistrarViewModels(IServiceCollection services)
-        {
         }
     }
 }

@@ -11,7 +11,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Domain\Domain.csproj" />
-		<ProjectReference Include="..\InfraData\InfraData.csproj" />
+		<ProjectReference Include="..\Domain\CF.Domain.csproj" />
+		<ProjectReference Include="..\InfraData\CF.InfraData.csproj" />
 	</ItemGroup>
 </Project>
