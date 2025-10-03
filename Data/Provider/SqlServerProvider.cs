@@ -27,7 +27,7 @@ namespace Data.Provider
                 throw new InvalidOperationException("Nenhuma configuração de banco de dados ativa foi encontrada no arquivo 'parametros.json'.");
             }
 
-            if (parametros.TipoBanco != Domain.Enumeradores.TipoBancoDados.SQLServer)
+            if (parametros.TipoBanco != Domain.Enumeradores.eTipoBancoDados.SQLServer)
             {
                 throw new InvalidOperationException("A configuração ativa encontrada não é para o tipo de banco de dados SQL Server.");
             }

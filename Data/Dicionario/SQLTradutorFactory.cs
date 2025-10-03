@@ -10,7 +10,7 @@ namespace Data.Dicionario
 {
     public static class SQLTradutorFactory
     {
-        public static TipoBancoDados TipoBancoDados { get; set; }
+        public static eTipoBancoDados TipoBancoDados { get; set; }
 
         public static string ObterUltimoInsert()
         {
@@ -18,9 +18,9 @@ namespace Data.Dicionario
 
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite: query = "SELECT last_insert_rowid();"; break;
-                case TipoBancoDados.SQLServer: query = "SELECT SCOPE_IDENTITY();"; break;
-                case TipoBancoDados.MySQL: query = "SELECT LAST_INSERT_ID();"; break;
+                case eTipoBancoDados.SQLite: query = "SELECT last_insert_rowid();"; break;
+                case eTipoBancoDados.SQLServer: query = "SELECT SCOPE_IDENTITY();"; break;
+                case eTipoBancoDados.MySQL: query = "SELECT LAST_INSERT_ID();"; break;
             }
 
             return query;
@@ -32,9 +32,9 @@ namespace Data.Dicionario
 
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite:
-                case TipoBancoDados.MySQL:
-                case TipoBancoDados.SQLServer:
+                case eTipoBancoDados.SQLite:
+                case eTipoBancoDados.MySQL:
+                case eTipoBancoDados.SQLServer:
                     // Tratar a data conforme necessário para cada DB
                     break;
             }
@@ -46,11 +46,11 @@ namespace Data.Dicionario
         {
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite:
+                case eTipoBancoDados.SQLite:
                     return "PRIMARY KEY AUTOINCREMENT";
-                case TipoBancoDados.SQLServer:
+                case eTipoBancoDados.SQLServer:
                     return "PRIMARY KEY IDENTITY";
-                case TipoBancoDados.MySQL:
+                case eTipoBancoDados.MySQL:
                     return "PRIMARY KEY AUTO_INCREMENT";
                 default:
                     throw new InvalidOperationException("Banco de dados não suportado para sintaxe de chave primária.");
@@ -61,11 +61,11 @@ namespace Data.Dicionario
         {
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite:
+                case eTipoBancoDados.SQLite:
                     return $"FOREIGN KEY ({columnName}) REFERENCES {tabelaReferenciada}({chavePrimaria})";
-                case TipoBancoDados.SQLServer:
+                case eTipoBancoDados.SQLServer:
                     return $"FOREIGN KEY ({columnName}) REFERENCES {tabelaReferenciada}({chavePrimaria})";
-                case TipoBancoDados.MySQL:
+                case eTipoBancoDados.MySQL:
                     return $"FOREIGN KEY ({columnName}) REFERENCES {tabelaReferenciada}({chavePrimaria})";
                 default:
                     throw new InvalidOperationException("Banco de dados não suportado para criação de chaves estrangeiras.");
@@ -113,7 +113,7 @@ namespace Data.Dicionario
 
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite:
+                case eTipoBancoDados.SQLite:
                     if (propertyType == typeof(bool))
                     {
                         tipoColuna = "INTEGER";
@@ -124,14 +124,14 @@ namespace Data.Dicionario
                     }
                     break;
 
-                case TipoBancoDados.SQLServer:
+                case eTipoBancoDados.SQLServer:
                     if (propertyType == typeof(bool))
                     {
                         tipoColuna = "BIT";
                     }
                     break;
 
-                case TipoBancoDados.MySQL:
+                case eTipoBancoDados.MySQL:
                     if (propertyType == typeof(bool))
                     {
                         tipoColuna = "TINYINT(1)";
@@ -142,7 +142,7 @@ namespace Data.Dicionario
                     throw new InvalidOperationException("Banco de dados não suportado para tipos de dados.");
             }
 
-            if (TipoBancoDados == TipoBancoDados.MySQL || TipoBancoDados == TipoBancoDados.SQLServer)
+            if (TipoBancoDados == eTipoBancoDados.MySQL || TipoBancoDados == eTipoBancoDados.SQLServer)
             {
                 if (propertyType == typeof(string))
                 {

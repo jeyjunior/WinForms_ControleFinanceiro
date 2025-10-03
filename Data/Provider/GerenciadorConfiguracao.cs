@@ -63,14 +63,14 @@ namespace Data.Provider
                 new ParametrosConfiguracao
                 {
                     Ativo = true,
-                    TipoBanco = TipoBancoDados.SQLServer,
+                    TipoBanco = eTipoBancoDados.SQLServer,
                     NomeAplicacao = "Meu App Principal",
                     StringConexao = "Server=SEU_SERVIDOR;Database=SEU_BANCO;User Id=SEU_USUARIO;Password=SUA_SENHA;TrustServerCertificate=True;"
                 },
                 new ParametrosConfiguracao
                 {
                     Ativo = false,
-                    TipoBanco = TipoBancoDados.SQLite,
+                    TipoBanco = eTipoBancoDados.SQLite,
                     NomeAplicacao = "Configuracao Alternativa SQLite",
                     StringConexao = "Data Source=C:\\Temp\\MeuBanco.db;Version=3;"
                 }

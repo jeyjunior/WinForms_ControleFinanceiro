@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBotoesCRUD = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -42,17 +43,19 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtNomeCategoria = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.iCategoriaVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tlpPrincipal.SuspendLayout();
             this.pnlBotoesCRUD.SuspendLayout();
             this.pnlConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iCategoriaVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPrincipal
             // 
             this.tlpPrincipal.ColumnCount = 2;
             this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tlpPrincipal.Controls.Add(this.pnlBotoesCRUD, 1, 0);
             this.tlpPrincipal.Controls.Add(this.pnlConteudo, 0, 0);
             this.tlpPrincipal.Controls.Add(this.lblStatus, 0, 1);
@@ -73,49 +76,50 @@
             this.pnlBotoesCRUD.Controls.Add(this.btnEditar);
             this.pnlBotoesCRUD.Controls.Add(this.btnAdicionar);
             this.pnlBotoesCRUD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBotoesCRUD.Location = new System.Drawing.Point(447, 3);
+            this.pnlBotoesCRUD.Location = new System.Drawing.Point(487, 3);
             this.pnlBotoesCRUD.Name = "pnlBotoesCRUD";
-            this.pnlBotoesCRUD.Size = new System.Drawing.Size(134, 335);
+            this.pnlBotoesCRUD.Size = new System.Drawing.Size(94, 335);
             this.pnlBotoesCRUD.TabIndex = 0;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancelar.Enabled = false;
             this.btnCancelar.Location = new System.Drawing.Point(0, 148);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(134, 37);
+            this.btnCancelar.Size = new System.Drawing.Size(94, 37);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
             this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSalvar.Enabled = false;
             this.btnSalvar.Location = new System.Drawing.Point(0, 111);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(134, 37);
+            this.btnSalvar.Size = new System.Drawing.Size(94, 37);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExcluir.Location = new System.Drawing.Point(0, 74);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(134, 37);
+            this.btnExcluir.Size = new System.Drawing.Size(94, 37);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEditar.Location = new System.Drawing.Point(0, 37);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(134, 37);
+            this.btnEditar.Size = new System.Drawing.Size(94, 37);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -126,7 +130,7 @@
             this.btnAdicionar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdicionar.Location = new System.Drawing.Point(0, 0);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(134, 37);
+            this.btnAdicionar.Size = new System.Drawing.Size(94, 37);
             this.btnAdicionar.TabIndex = 0;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -140,13 +144,15 @@
             this.pnlConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlConteudo.Location = new System.Drawing.Point(3, 3);
             this.pnlConteudo.Name = "pnlConteudo";
-            this.pnlConteudo.Size = new System.Drawing.Size(438, 335);
+            this.pnlConteudo.Size = new System.Drawing.Size(478, 335);
             this.pnlConteudo.TabIndex = 1;
             // 
             // dgvCategorias
             // 
             this.dgvCategorias.AllowUserToAddRows = false;
             this.dgvCategorias.AllowUserToDeleteRows = false;
+            this.dgvCategorias.AutoGenerateColumns = false;
+            this.dgvCategorias.AllowUserToResizeRows = false;
             this.dgvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -161,9 +167,11 @@
             this.dgvCategorias.ReadOnly = true;
             this.dgvCategorias.RowHeadersVisible = false;
             this.dgvCategorias.RowHeadersWidth = 60;
+            this.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategorias.Size = new System.Drawing.Size(420, 262);
+            this.dgvCategorias.Size = new System.Drawing.Size(460, 262);
             this.dgvCategorias.TabIndex = 2;
+            this.dgvCategorias.SelectionChanged += new System.EventHandler(this.dgvCategorias_SelectionChanged);
             // 
             // colPK_Categoria
             // 
@@ -205,7 +213,7 @@
             this.txtNomeCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCategoria.Location = new System.Drawing.Point(9, 29);
             this.txtNomeCategoria.Name = "txtNomeCategoria";
-            this.txtNomeCategoria.Size = new System.Drawing.Size(420, 22);
+            this.txtNomeCategoria.Size = new System.Drawing.Size(460, 22);
             this.txtNomeCategoria.TabIndex = 0;
             // 
             // lblStatus
@@ -214,8 +222,12 @@
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Location = new System.Drawing.Point(3, 341);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(438, 20);
+            this.lblStatus.Size = new System.Drawing.Size(478, 20);
             this.lblStatus.TabIndex = 2;
+            // 
+            // iCategoriaVMBindingSource
+            // 
+            this.iCategoriaVMBindingSource.DataSource = typeof(CF.Domain.Interfaces.ViewModel.ICategoriaVM);
             // 
             // Categoria
             // 
@@ -233,6 +245,7 @@
             this.pnlConteudo.ResumeLayout(false);
             this.pnlConteudo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iCategoriaVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +266,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPK_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
+        private System.Windows.Forms.BindingSource iCategoriaVMBindingSource;
     }
 }

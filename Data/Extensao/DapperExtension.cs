@@ -14,9 +14,9 @@ namespace Data.Extensao
 {
     public static class DapperExtension
     {
-        public static TipoBancoDados TipoBancoDados { get; set; }
+        public static eTipoBancoDados TipoBancoDados { get; set; }
 
-        public static void DefinirTipoBancoDados(this IDbConnection connection, TipoBancoDados tipoBancoDados)
+        public static void DefinirTipoBancoDados(this IDbConnection connection, eTipoBancoDados tipoBancoDados)
         {
             TipoBancoDados = tipoBancoDados;
             SQLTradutorFactory.TipoBancoDados = tipoBancoDados;
@@ -31,15 +31,15 @@ namespace Data.Extensao
 
             switch (TipoBancoDados)
             {
-                case TipoBancoDados.SQLite:
+                case eTipoBancoDados.SQLite:
                     query = $"SELECT count(*) FROM sqlite_master WHERE type='table' AND name='{tabela}';";
                     break;
 
-                case TipoBancoDados.SQLServer:
+                case eTipoBancoDados.SQLServer:
                     query = $"SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{tabela}'";
                     break;
 
-                case TipoBancoDados.MySQL:
+                case eTipoBancoDados.MySQL:
                     query = $"SELECT count(*) FROM information_schema.tables WHERE table_name = '{tabela}'";
                     break;
 
@@ -83,13 +83,13 @@ namespace Data.Extensao
 
                     switch (TipoBancoDados)
                     {
-                        case TipoBancoDados.SQLite:
+                        case eTipoBancoDados.SQLite:
                             query = $"SELECT count(*) FROM sqlite_master WHERE type='table' AND name='{entidade.Nome}';";
                             break;
-                        case TipoBancoDados.SQLServer:
+                        case eTipoBancoDados.SQLServer:
                             query = $"SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{entidade.Nome}'";
                             break;
-                        case TipoBancoDados.MySQL:
+                        case eTipoBancoDados.MySQL:
                             query = $"SELECT count(*) FROM information_schema.tables WHERE table_name = '{entidade.Nome}'";
                             break;
                         default:

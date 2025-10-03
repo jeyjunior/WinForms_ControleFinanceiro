@@ -8,7 +8,7 @@ namespace Domain.Dto
     public class ParametrosConfiguracao
     {
         public bool Ativo { get; set; } 
-        public TipoBancoDados TipoBanco { get; set; }
+        public eTipoBancoDados TipoBanco { get; set; }
         public string StringConexao { get; set; }
         public string NomeAplicacao { get; set; } = string.Empty;
     }

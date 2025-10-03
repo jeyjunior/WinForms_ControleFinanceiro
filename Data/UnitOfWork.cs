@@ -17,7 +17,7 @@ namespace Data
         public UnitOfWork()
         {
             _connection = SqlServerProvider.CriarConexao();
-            _connection.DefinirTipoBancoDados(Domain.Enumeradores.TipoBancoDados.SQLServer);
+            _connection.DefinirTipoBancoDados(Domain.Enumeradores.eTipoBancoDados.SQLServer);
         }
 
         public IDbConnection Connection => _connection;
