@@ -187,6 +187,7 @@ namespace CF.ViewModel.ViewModel
             TipoOperacaoAtiva = tipoOperacao;
 
             _descricaoOperacao = "Categoria selecionada:";
+            _nomeInvalido = false;
 
             switch (TipoOperacaoAtiva)
             {
