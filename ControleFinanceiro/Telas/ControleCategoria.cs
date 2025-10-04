@@ -1,9 +1,10 @@
-﻿using CF.Domain.Interfaces.ViewModel;
-using CF.ViewModel;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Windows.Forms;
-using Domain.Entity;
+using Microsoft.Extensions.DependencyInjection;
+using CF.Domain.Interfaces.ViewModel;
+using CF.ViewModel;
+using CF.Domain.Entity;
+using CF.Domain.Enumeradores;
 
 namespace ControleFinanceiro.Telas
 {
@@ -43,17 +44,19 @@ namespace ControleFinanceiro.Telas
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            _viewModel.HabilitarOperacao(Domain.Enumeradores.eTipoOperacao.Adicionar);
+            _viewModel.HabilitarOperacao(CF.Domain.Enumeradores.eTipoOperacao.Adicionar);
+            txtNomeCategoria.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            _viewModel.HabilitarOperacao(Domain.Enumeradores.eTipoOperacao.Editar);
+            _viewModel.HabilitarOperacao(eTipoOperacao.Editar);
+            txtNomeCategoria.Focus();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            _viewModel.HabilitarOperacao(Domain.Enumeradores.eTipoOperacao.Excluir);
+            _viewModel.HabilitarOperacao(CF.Domain.Enumeradores.eTipoOperacao.Excluir);
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -65,7 +68,7 @@ namespace ControleFinanceiro.Telas
                 FK_Usuario = null
             };
 
-            if (_viewModel.TipoOperacaoAtiva != Domain.Enumeradores.eTipoOperacao.Adicionar)
+            if (_viewModel.TipoOperacaoAtiva != eTipoOperacao.Adicionar)
                 categoria.PK_Categoria = _viewModel.CategoriaSelecionada.PK_Categoria;
 
             _viewModel.Salvar(categoria);
@@ -73,7 +76,7 @@ namespace ControleFinanceiro.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            _viewModel.HabilitarOperacao(Domain.Enumeradores.eTipoOperacao.Visualizar);
+            _viewModel.HabilitarOperacao(eTipoOperacao.Visualizar);
         }
 
         private void dgvCategorias_SelectionChanged(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace ControleFinanceiro.Telas
             {
                 var linhaSelecionada = dgvCategorias.SelectedRows[0];
 
-                Domain.Entity.Categoria categoria = linhaSelecionada.DataBoundItem as Domain.Entity.Categoria;
+                Categoria categoria = linhaSelecionada.DataBoundItem as Categoria;
 
                 _viewModel.CategoriaSelecionada = categoria;
             }

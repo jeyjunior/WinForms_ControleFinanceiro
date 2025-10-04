@@ -1,15 +1,12 @@
-﻿using Domain.Dto;
-using Domain.Enumeradores;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Xml;
 using System.Linq;
+using Newtonsoft.Json;
+using CF.Domain.Dto;
+using CF.Domain.Enumeradores;
 
-namespace Data.Provider
+namespace CF.Data.Provider
 {
     internal class GerenciadorConfiguracao
     {

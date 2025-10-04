@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Atributos
+namespace CF.Domain.Atributos
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class ChavePrimaria : Attribute

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Domain.Enumeradores;
+using CF.Domain.Enumeradores;
 
-namespace Domain.Dto
+namespace CF.Domain.Dto
 {
     public class ParametrosConfiguracao
     {

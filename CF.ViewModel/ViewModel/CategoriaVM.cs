@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using CF.Domain.Interfaces.ViewModel;
-using Domain.Entity;
-using Domain.Enumeradores;
-using Domain.Interfaces;
+using CF.Domain.Entity;
+using CF.Domain.Enumeradores;
+using CF.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CF.ViewModel.ViewModel

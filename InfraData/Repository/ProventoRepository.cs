@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Domain.Entity;
-using Domain.Interfaces;
+using CF.Domain.Entity;
+using CF.Domain.Interfaces;
 
-namespace InfraData.Repository
+namespace CF.InfraData.Repository
 {
     public class ProventoRepository : Repository<Provento>, IProventoRepository
     {

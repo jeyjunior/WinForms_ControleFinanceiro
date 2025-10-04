@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Domain.Entity;
+using CF.Domain.Entity;
 
-namespace Domain.Interfaces
+namespace CF.Domain.Interfaces
 {
     public interface IAtivoFinanceiroRepository : IRepository<AtivoFinanceiro>
     {

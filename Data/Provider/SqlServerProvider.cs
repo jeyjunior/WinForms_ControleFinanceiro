@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using Domain.Dto;
-using Domain.Interfaces;
 using Microsoft.Data.SqlClient;
+using CF.Domain.Dto;
+using CF.Domain.Interfaces;
 
-namespace Data.Provider
+namespace CF.Data.Provider
 {
     internal static class SqlServerProvider
     {

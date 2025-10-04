@@ -1,16 +1,16 @@
-﻿using Dapper;
-using Data.Dicionario;
-using Domain.Atributos;
-using Domain.Dto;
-using Domain.Enumeradores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Dapper;
+using CF.Data.Dicionario;
+using CF.Domain.Atributos;
+using CF.Domain.Dto;
+using CF.Domain.Enumeradores;
 
-namespace Data.Extensao
+namespace CF.Data.Extensao
 {
     public static class DapperExtension
     {

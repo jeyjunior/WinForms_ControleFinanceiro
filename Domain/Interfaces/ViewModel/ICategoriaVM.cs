@@ -1,9 +1,9 @@
-﻿using Domain.Entity;
-using Domain.Enumeradores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using CF.Domain.Entity;
+using CF.Domain.Enumeradores;
 
 namespace CF.Domain.Interfaces.ViewModel
 {

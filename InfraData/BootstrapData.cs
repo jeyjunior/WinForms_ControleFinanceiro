@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Data;
-using Domain.Interfaces;
+using CF.Data;
+using CF.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InfraData
+namespace CF.InfraData
 {
     public static class BootstrapData
     {

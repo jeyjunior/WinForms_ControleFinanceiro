@@ -4,9 +4,9 @@ using System.ComponentModel.Design;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Domain.Interfaces;
-using InfraData;
-using InfraData.Repository;
+using CF.Domain.Interfaces;
+using CF.InfraData;
+using CF.InfraData.Repository;
 
 namespace CF.Application
 {

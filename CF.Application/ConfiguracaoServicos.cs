@@ -1,9 +1,9 @@
-﻿using Data;
-using Data.Extensao;
-using Domain.Atributos;
-using Domain.Entity;
-using Domain.Interfaces;
-using InfraData.Repository;
+﻿using CF.Data;
+using CF.Data.Extensao;
+using CF.Domain.Atributos;
+using CF.Domain.Entity;
+using CF.Domain.Interfaces;
+using CF.InfraData.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using System;

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Domain.Atributos;
+using CF.Domain.Atributos;
 
-namespace Domain.Entity
+namespace CF.Domain.Entity
 {
     [Entidade("AtivoFinanceiro")]
     public class AtivoFinanceiro

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Domain.Interfaces
+namespace CF.Domain.Interfaces
 {
     public interface IUnitOfWork
     {

@@ -1,12 +1,12 @@
-﻿using Domain.Atributos;
-using Domain.Enumeradores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using CF.Domain.Atributos;
+using CF.Domain.Enumeradores;
 
-namespace Data.Dicionario
+namespace CF.Data.Dicionario
 {
     public static class SQLTradutorFactory
     {

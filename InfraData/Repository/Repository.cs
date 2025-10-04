@@ -1,13 +1,13 @@
-﻿using Data.Extensao;
-using Domain.Enumeradores;
-using Domain.Interfaces;
+﻿using CF.Data.Extensao;
+using CF.Domain.Enumeradores;
+using CF.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InfraData.Repository
+namespace CF.InfraData.Repository
 {
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

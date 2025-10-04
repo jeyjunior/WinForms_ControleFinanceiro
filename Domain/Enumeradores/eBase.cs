@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Enumeradores
+namespace CF.Domain.Enumeradores
 {
     public enum eTipoBancoDados
     {

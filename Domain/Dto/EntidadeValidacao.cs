@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Dto
+namespace CF.Domain.Dto
 {
     public class EntidadeValidacao
     {

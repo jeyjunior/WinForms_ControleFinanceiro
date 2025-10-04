@@ -1,9 +1,9 @@
 ﻿using CF.Application;
 using CF.Domain.Interfaces.ViewModel;
 using CF.ViewModel.ViewModel;
-using Domain.Interfaces;
-using InfraData;
-using InfraData.Repository;
+using CF.Domain.Interfaces;
+using CF.InfraData;
+using CF.InfraData.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;

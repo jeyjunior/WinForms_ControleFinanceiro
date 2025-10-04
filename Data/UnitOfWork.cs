@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using Data.Extensao;
-using Data.Provider;
-using Domain.Interfaces;
+using CF.Data.Extensao;
+using CF.Data.Provider;
+using CF.Domain.Interfaces;
 
-namespace Data
+namespace CF.Data
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {

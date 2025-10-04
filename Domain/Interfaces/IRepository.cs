@@ -1,9 +1,9 @@
-﻿using Domain.Enumeradores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CF.Domain.Interfaces;
 
-namespace Domain.Interfaces
+namespace CF.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : class
     {
