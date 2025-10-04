@@ -31,14 +31,14 @@
             this.btnCategoria = new System.Windows.Forms.Button();
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pDireita = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pCentral = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnTipoEntidadeFinanceira = new System.Windows.Forms.Button();
+            this.pCentral = new System.Windows.Forms.Panel();
             this.tlpPrincipal.SuspendLayout();
             this.pDireita.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@
             this.pDireita.Controls.Add(this.button4);
             this.pDireita.Controls.Add(this.button3);
             this.pDireita.Controls.Add(this.button2);
-            this.pDireita.Controls.Add(this.button1);
+            this.pDireita.Controls.Add(this.btnTipoEntidadeFinanceira);
             this.pDireita.Controls.Add(this.btnCategoria);
             this.pDireita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pDireita.Location = new System.Drawing.Point(681, 3);
@@ -86,58 +86,14 @@
             this.pDireita.Size = new System.Drawing.Size(114, 424);
             this.pDireita.TabIndex = 1;
             // 
-            // button1
+            // button7
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 37);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pCentral
-            // 
-            this.pCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCentral.Location = new System.Drawing.Point(3, 3);
-            this.pCentral.Name = "pCentral";
-            this.pCentral.Size = new System.Drawing.Size(672, 424);
-            this.pCentral.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Location = new System.Drawing.Point(0, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 37);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 111);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 37);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 148);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 37);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Location = new System.Drawing.Point(0, 185);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 37);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.Location = new System.Drawing.Point(0, 259);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(114, 37);
+            this.button7.TabIndex = 7;
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -148,14 +104,60 @@
             this.button6.TabIndex = 6;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // button5
             // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.Location = new System.Drawing.Point(0, 259);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(114, 37);
-            this.button7.TabIndex = 7;
-            this.button7.UseVisualStyleBackColor = true;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.Location = new System.Drawing.Point(0, 185);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 37);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.Location = new System.Drawing.Point(0, 148);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(114, 37);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.Location = new System.Drawing.Point(0, 111);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(114, 37);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 37);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnTipoEntidadeFinanceira
+            // 
+            this.btnTipoEntidadeFinanceira.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTipoEntidadeFinanceira.Location = new System.Drawing.Point(0, 37);
+            this.btnTipoEntidadeFinanceira.Name = "btnTipoEntidadeFinanceira";
+            this.btnTipoEntidadeFinanceira.Size = new System.Drawing.Size(114, 37);
+            this.btnTipoEntidadeFinanceira.TabIndex = 1;
+            this.btnTipoEntidadeFinanceira.Text = "Tipo de Entidade Financeira";
+            this.btnTipoEntidadeFinanceira.UseVisualStyleBackColor = true;
+            this.btnTipoEntidadeFinanceira.Click += new System.EventHandler(this.btnTipoEntidadeFinanceira_Click);
+            // 
+            // pCentral
+            // 
+            this.pCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pCentral.Location = new System.Drawing.Point(3, 3);
+            this.pCentral.Name = "pCentral";
+            this.pCentral.Size = new System.Drawing.Size(672, 424);
+            this.pCentral.TabIndex = 2;
             // 
             // ControleFinanceiro
             // 
@@ -176,7 +178,7 @@
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.TableLayoutPanel tlpPrincipal;
         private System.Windows.Forms.Panel pDireita;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTipoEntidadeFinanceira;
         private System.Windows.Forms.Panel pCentral;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;

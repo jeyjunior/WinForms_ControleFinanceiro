@@ -1,6 +1,6 @@
 ﻿namespace ControleFinanceiro.Telas
 {
-    partial class ControleCategoria
+    partial class ControleTipoEntidadeFinanceira
     {
         /// <summary>
         /// Required designer variable.
@@ -37,16 +37,16 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.pnlConteudo = new System.Windows.Forms.Panel();
             this.lblNomeValido = new System.Windows.Forms.Label();
-            this.dtgCategoria = new System.Windows.Forms.DataGridView();
-            this.colPK_Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgTipoEntidade = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtNomeCategoria = new System.Windows.Forms.TextBox();
+            this.txtNomeTipoEntidade = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.colPK_TipoEntidadeFinanceira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpPrincipal.SuspendLayout();
             this.pnlBotoesCRUD.SuspendLayout();
             this.pnlConteudo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTipoEntidade)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -137,9 +137,9 @@
             // pnlConteudo
             // 
             this.pnlConteudo.Controls.Add(this.lblNomeValido);
-            this.pnlConteudo.Controls.Add(this.dtgCategoria);
+            this.pnlConteudo.Controls.Add(this.dtgTipoEntidade);
             this.pnlConteudo.Controls.Add(this.lblTitulo);
-            this.pnlConteudo.Controls.Add(this.txtNomeCategoria);
+            this.pnlConteudo.Controls.Add(this.txtNomeTipoEntidade);
             this.pnlConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlConteudo.Location = new System.Drawing.Point(3, 3);
             this.pnlConteudo.Name = "pnlConteudo";
@@ -159,52 +159,30 @@
             this.lblNomeValido.TabIndex = 3;
             this.lblNomeValido.Text = "Nome inválido";
             // 
-            // dtgCategoria
+            // dtgTipoEntidade
             // 
-            this.dtgCategoria.AllowUserToAddRows = false;
-            this.dtgCategoria.AllowUserToDeleteRows = false;
-            this.dtgCategoria.AllowUserToResizeRows = false;
-            this.dtgCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtgTipoEntidade.AllowUserToAddRows = false;
+            this.dtgTipoEntidade.AllowUserToDeleteRows = false;
+            this.dtgTipoEntidade.AllowUserToResizeRows = false;
+            this.dtgTipoEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colPK_Categoria,
+            this.dtgTipoEntidade.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgTipoEntidade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgTipoEntidade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPK_TipoEntidadeFinanceira,
             this.colNome});
-            this.dtgCategoria.Location = new System.Drawing.Point(9, 61);
-            this.dtgCategoria.MultiSelect = false;
-            this.dtgCategoria.Name = "dtgCategoria";
-            this.dtgCategoria.ReadOnly = true;
-            this.dtgCategoria.RowHeadersVisible = false;
-            this.dtgCategoria.RowHeadersWidth = 60;
-            this.dtgCategoria.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtgCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgCategoria.Size = new System.Drawing.Size(460, 260);
-            this.dtgCategoria.TabIndex = 2;
-            this.dtgCategoria.SelectionChanged += new System.EventHandler(this.dgvCategorias_SelectionChanged);
-            // 
-            // colPK_Categoria
-            // 
-            this.colPK_Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPK_Categoria.DataPropertyName = "PK_Categoria";
-            this.colPK_Categoria.Frozen = true;
-            this.colPK_Categoria.HeaderText = "PK_Categoria";
-            this.colPK_Categoria.MinimumWidth = 120;
-            this.colPK_Categoria.Name = "colPK_Categoria";
-            this.colPK_Categoria.ReadOnly = true;
-            this.colPK_Categoria.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colPK_Categoria.Width = 120;
-            // 
-            // colNome
-            // 
-            this.colNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.FillWeight = 118.7817F;
-            this.colNome.HeaderText = "Categoria";
-            this.colNome.Name = "colNome";
-            this.colNome.ReadOnly = true;
-            this.colNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgTipoEntidade.Location = new System.Drawing.Point(9, 61);
+            this.dtgTipoEntidade.MultiSelect = false;
+            this.dtgTipoEntidade.Name = "dtgTipoEntidade";
+            this.dtgTipoEntidade.ReadOnly = true;
+            this.dtgTipoEntidade.RowHeadersVisible = false;
+            this.dtgTipoEntidade.RowHeadersWidth = 60;
+            this.dtgTipoEntidade.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dtgTipoEntidade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgTipoEntidade.Size = new System.Drawing.Size(460, 260);
+            this.dtgTipoEntidade.TabIndex = 2;
+            this.dtgTipoEntidade.SelectionChanged += new System.EventHandler(this.dgvCategorias_SelectionChanged);
             // 
             // lblTitulo
             // 
@@ -212,20 +190,20 @@
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(6, 11);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(63, 15);
+            this.lblTitulo.Size = new System.Drawing.Size(164, 15);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Categoria:";
+            this.lblTitulo.Text = "Tipo de Entidade Financeira:";
             // 
-            // txtNomeCategoria
+            // txtNomeTipoEntidade
             // 
-            this.txtNomeCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNomeTipoEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNomeCategoria.Enabled = false;
-            this.txtNomeCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCategoria.Location = new System.Drawing.Point(9, 29);
-            this.txtNomeCategoria.Name = "txtNomeCategoria";
-            this.txtNomeCategoria.Size = new System.Drawing.Size(460, 22);
-            this.txtNomeCategoria.TabIndex = 0;
+            this.txtNomeTipoEntidade.Enabled = false;
+            this.txtNomeTipoEntidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeTipoEntidade.Location = new System.Drawing.Point(9, 29);
+            this.txtNomeTipoEntidade.Name = "txtNomeTipoEntidade";
+            this.txtNomeTipoEntidade.Size = new System.Drawing.Size(460, 22);
+            this.txtNomeTipoEntidade.TabIndex = 0;
             // 
             // lblStatus
             // 
@@ -236,22 +214,44 @@
             this.lblStatus.Size = new System.Drawing.Size(478, 20);
             this.lblStatus.TabIndex = 2;
             // 
-            // ControleCategoria
+            // colPK_TipoEntidadeFinanceira
+            // 
+            this.colPK_TipoEntidadeFinanceira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPK_TipoEntidadeFinanceira.DataPropertyName = "PK_TipoEntidadeFinanceira";
+            this.colPK_TipoEntidadeFinanceira.Frozen = true;
+            this.colPK_TipoEntidadeFinanceira.HeaderText = "PK_TipoEntidadeFinanceira";
+            this.colPK_TipoEntidadeFinanceira.MinimumWidth = 160;
+            this.colPK_TipoEntidadeFinanceira.Name = "colPK_TipoEntidadeFinanceira";
+            this.colPK_TipoEntidadeFinanceira.ReadOnly = true;
+            this.colPK_TipoEntidadeFinanceira.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colPK_TipoEntidadeFinanceira.Width = 160;
+            // 
+            // colNome
+            // 
+            this.colNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.FillWeight = 118.7817F;
+            this.colNome.HeaderText = "Tipo de Entidade Financeira";
+            this.colNome.Name = "colNome";
+            this.colNome.ReadOnly = true;
+            this.colNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ControleTipoEntidadeFinanceira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.tlpPrincipal);
             this.MinimumSize = new System.Drawing.Size(600, 400);
-            this.Name = "ControleCategoria";
+            this.Name = "ControleTipoEntidadeFinanceira";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Categoria";
+            this.Text = "Tipo de Entidade Financeira";
             this.tlpPrincipal.ResumeLayout(false);
             this.tlpPrincipal.PerformLayout();
             this.pnlBotoesCRUD.ResumeLayout(false);
             this.pnlConteudo.ResumeLayout(false);
             this.pnlConteudo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTipoEntidade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,12 +266,12 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.DataGridView dtgTipoEntidade;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.TextBox txtNomeCategoria;
+        private System.Windows.Forms.TextBox txtNomeTipoEntidade;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPK_Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.Label lblNomeValido;
-        private System.Windows.Forms.DataGridView dtgCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPK_TipoEntidadeFinanceira;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
     }
 }

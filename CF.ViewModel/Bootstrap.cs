@@ -38,6 +38,7 @@ namespace CF.ViewModel
         private static void RegistrarViewModels(IServiceCollection services)
         {
             services.AddSingleton<ICategoriaVM, CategoriaVM>();
+            services.AddSingleton<ITipoEntidadeFinanceiraVM, TipoEntidadeFinanceiraVM>();
         }
     }
 }

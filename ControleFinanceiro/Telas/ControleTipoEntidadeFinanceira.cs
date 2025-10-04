@@ -8,22 +8,22 @@ using CF.Domain.Enumeradores;
 
 namespace ControleFinanceiro.Telas
 {
-    public partial class ControleCategoria : Form
+    public partial class ControleTipoEntidadeFinanceira : Form
     {
-        private readonly ICategoriaVM _viewModel;
+        private readonly ITipoEntidadeFinanceiraVM _viewModel;
 
-        public ControleCategoria()
+        public ControleTipoEntidadeFinanceira()
         {
             InitializeComponent();
 
-            _viewModel = Bootstrap.ServiceProvider.GetRequiredService<ICategoriaVM>();
+            _viewModel = Bootstrap.ServiceProvider.GetRequiredService<ITipoEntidadeFinanceiraVM>();
 
             ConfigurarBindings();
         }
 
         private void ConfigurarBindings()
         {
-            dtgCategoria.AutoGenerateColumns = false;
+            dtgTipoEntidade.AutoGenerateColumns = false;
 
             btnAdicionar.DataBindings.Add("Visible", _viewModel, "NaoEstaEditando");
             btnEditar.DataBindings.Add("Visible", _viewModel, "NaoEstaEditando");
@@ -37,10 +37,10 @@ namespace ControleFinanceiro.Telas
 
             lblTitulo.DataBindings.Add("Text", _viewModel, "DescricaoOperacao");
             
-            dtgCategoria.DataSource = _viewModel.ItemCollection;
+            dtgTipoEntidade.DataSource = _viewModel.ItemCollection;
 
-            txtNomeCategoria.DataBindings.Add("Text", _viewModel, "NomeEmExibicao", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtNomeCategoria.DataBindings.Add("Enabled", _viewModel, "HabilitarTexto", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtNomeTipoEntidade.DataBindings.Add("Text", _viewModel, "NomeEmExibicao", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtNomeTipoEntidade.DataBindings.Add("Enabled", _viewModel, "HabilitarTexto", false, DataSourceUpdateMode.OnPropertyChanged);
 
             lblNomeValido.DataBindings.Add("Visible", _viewModel, "NomeInvalido", true, DataSourceUpdateMode.OnPropertyChanged);
             btnSalvar.DataBindings.Add("Enabled", _viewModel, "NomeValido");
@@ -51,13 +51,13 @@ namespace ControleFinanceiro.Telas
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             _viewModel.HabilitarOperacao(CF.Domain.Enumeradores.eTipoOperacao.Adicionar);
-            txtNomeCategoria.Focus();
+            txtNomeTipoEntidade.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             _viewModel.HabilitarOperacao(eTipoOperacao.Editar);
-            txtNomeCategoria.Focus();
+            txtNomeTipoEntidade.Focus();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -77,13 +77,13 @@ namespace ControleFinanceiro.Telas
 
         private void dgvCategorias_SelectionChanged(object sender, EventArgs e)
         {
-            if (dtgCategoria.SelectedRows.Count > 0)
+            if (dtgTipoEntidade.SelectedRows.Count > 0)
             {
-                var linhaSelecionada = dtgCategoria.SelectedRows[0];
+                var linhaSelecionada = dtgTipoEntidade.SelectedRows[0];
 
-                Categoria categoria = linhaSelecionada.DataBoundItem as Categoria;
+                TipoEntidadeFinanceira tipoEntidadeFinanceira = linhaSelecionada.DataBoundItem as TipoEntidadeFinanceira;
 
-                _viewModel.ItemSelecionado = categoria;
+                _viewModel.ItemSelecionado = tipoEntidadeFinanceira;
             }
             else
             {

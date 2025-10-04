@@ -25,6 +25,7 @@ namespace ControleFinanceiro
             InitializeComponent();
         }
         #endregion
+
         #region Eventos
         private void btnCategoria_Click(object sender, EventArgs e)
         {
@@ -38,7 +39,20 @@ namespace ControleFinanceiro
                 ExibirMensagem(ex.Message);
             }
         }
+        private void btnTipoEntidadeFinanceira_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ControleTipoEntidadeFinanceira controleTipoEntidadeFinanceira = new ControleTipoEntidadeFinanceira();
+                controleTipoEntidadeFinanceira.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ExibirMensagem(ex.Message);
+            }
+        }
         #endregion
+
         #region Metodos
         private void ExibirMensagem(string mensagem)
         {
