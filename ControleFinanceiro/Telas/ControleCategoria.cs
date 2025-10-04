@@ -34,10 +34,14 @@ namespace ControleFinanceiro.Telas
             btnExcluir.DataBindings.Add("Enabled", _viewModel, "HabilitarBotoes");
 
             lblCategoria.DataBindings.Add("Text", _viewModel, "DescricaoOperacao");
-            txtNomeCategoria.DataBindings.Add("Text", _viewModel, "NomeCategoriaSelecionada");
-            txtNomeCategoria.DataBindings.Add("Enabled", _viewModel, "HabilitarTexto");
-
+            
             dgvCategorias.DataSource = _viewModel.CategoriaCollection;
+
+            txtNomeCategoria.DataBindings.Add("Text", _viewModel, "NomeCategoriaDisplay", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtNomeCategoria.DataBindings.Add("Enabled", _viewModel, "HabilitarTexto", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            lblNomeValido.DataBindings.Add("Visible", _viewModel, "NomeInvalido", true, DataSourceUpdateMode.OnPropertyChanged);
+            btnSalvar.DataBindings.Add("Enabled", _viewModel, "NomeValido");
 
             _viewModel.DefinirPadraoInicial();
         }
@@ -61,17 +65,7 @@ namespace ControleFinanceiro.Telas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Categoria categoria = new Categoria
-            {
-                PK_Categoria = 0,
-                Nome = txtNomeCategoria.Text,
-                FK_Usuario = null
-            };
-
-            if (_viewModel.TipoOperacaoAtiva != eTipoOperacao.Adicionar)
-                categoria.PK_Categoria = _viewModel.CategoriaSelecionada.PK_Categoria;
-
-            _viewModel.Salvar(categoria);
+            _viewModel.Salvar();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

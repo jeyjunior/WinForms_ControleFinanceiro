@@ -43,12 +43,11 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtNomeCategoria = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.iCategoriaVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblNomeValido = new System.Windows.Forms.Label();
             this.tlpPrincipal.SuspendLayout();
             this.pnlBotoesCRUD.SuspendLayout();
             this.pnlConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iCategoriaVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -138,6 +137,7 @@
             // 
             // pnlConteudo
             // 
+            this.pnlConteudo.Controls.Add(this.lblNomeValido);
             this.pnlConteudo.Controls.Add(this.dgvCategorias);
             this.pnlConteudo.Controls.Add(this.lblCategoria);
             this.pnlConteudo.Controls.Add(this.txtNomeCategoria);
@@ -151,8 +151,8 @@
             // 
             this.dgvCategorias.AllowUserToAddRows = false;
             this.dgvCategorias.AllowUserToDeleteRows = false;
-            this.dgvCategorias.AutoGenerateColumns = false;
             this.dgvCategorias.AllowUserToResizeRows = false;
+            this.dgvCategorias.AutoGenerateColumns = false;
             this.dgvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -161,7 +161,7 @@
             this.dgvCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPK_Categoria,
             this.colNome});
-            this.dgvCategorias.Location = new System.Drawing.Point(9, 64);
+            this.dgvCategorias.Location = new System.Drawing.Point(9, 61);
             this.dgvCategorias.MultiSelect = false;
             this.dgvCategorias.Name = "dgvCategorias";
             this.dgvCategorias.ReadOnly = true;
@@ -169,7 +169,7 @@
             this.dgvCategorias.RowHeadersWidth = 60;
             this.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategorias.Size = new System.Drawing.Size(460, 262);
+            this.dgvCategorias.Size = new System.Drawing.Size(460, 260);
             this.dgvCategorias.TabIndex = 2;
             this.dgvCategorias.SelectionChanged += new System.EventHandler(this.dgvCategorias_SelectionChanged);
             // 
@@ -225,18 +225,30 @@
             this.lblStatus.Size = new System.Drawing.Size(478, 20);
             this.lblStatus.TabIndex = 2;
             // 
+            // lblNomeValido
+            // 
+            this.lblNomeValido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNomeValido.AutoSize = true;
+            this.lblNomeValido.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomeValido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeValido.ForeColor = System.Drawing.Color.Red;
+            this.lblNomeValido.Location = new System.Drawing.Point(383, 11);
+            this.lblNomeValido.Name = "lblNomeValido";
+            this.lblNomeValido.Size = new System.Drawing.Size(86, 15);
+            this.lblNomeValido.TabIndex = 3;
+            this.lblNomeValido.Text = "Nome inválido";
+            // 
             // iCategoriaVMBindingSource
             // 
-            this.iCategoriaVMBindingSource.DataSource = typeof(CF.Domain.Interfaces.ViewModel.ICategoriaVM);
             // 
-            // Categoria
+            // ControleCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.tlpPrincipal);
             this.MinimumSize = new System.Drawing.Size(600, 400);
-            this.Name = "Categoria";
+            this.Name = "ControleCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Categorias";
             this.tlpPrincipal.ResumeLayout(false);
@@ -245,7 +257,6 @@
             this.pnlConteudo.ResumeLayout(false);
             this.pnlConteudo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iCategoriaVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,6 +277,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPK_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
-        private System.Windows.Forms.BindingSource iCategoriaVMBindingSource;
+        private System.Windows.Forms.Label lblNomeValido;
     }
 }

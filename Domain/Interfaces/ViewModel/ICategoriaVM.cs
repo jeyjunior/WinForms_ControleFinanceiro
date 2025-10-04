@@ -9,17 +9,22 @@ namespace CF.Domain.Interfaces.ViewModel
 {
     public interface ICategoriaVM
     {
-        bool EstaEditando { get; }
-        bool NaoEstaEditando { get; }
-        eTipoOperacao TipoOperacaoAtiva { get;}
-        void HabilitarOperacao(eTipoOperacao tipoOperacao);
+        eTipoOperacao TipoOperacaoAtiva { get; }
         string DescricaoOperacao { get; }
-        string NomeCategoriaSelecionada { get; }
-        BindingList<Categoria> CategoriaCollection { get; }
-        bool HabilitarBotoes { get; }
-        bool HabilitarTexto { get;  }
+        bool HabilitarTexto { get; }
+        bool NaoEstaEditando { get; }
+        bool EstaEditando { get; }
         Categoria CategoriaSelecionada { get; set; }
-        void Salvar(Categoria categoria);
+        string NomeCategoriaEmEdicao { get; set; }
+        string NomeCategoriaDisplay { get; set; }
+        BindingList<Categoria> CategoriaCollection { get; }
+
+        bool NomeInvalido { get; }
+        bool NomeValido { get; }
+
         void DefinirPadraoInicial();
+        void Salvar();
+        void ValidarNome();
+        void HabilitarOperacao(eTipoOperacao tipoOperacao);
     }
 }
