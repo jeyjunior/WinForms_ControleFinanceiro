@@ -7,17 +7,17 @@ using CF.Domain.Enumeradores;
 
 namespace CF.Domain.Interfaces.ViewModel
 {
-    public interface ITipoEntidadeFinanceiraVM
+    public interface ITipoInvestimentoVM
     {
         eTipoOperacao TipoOperacaoAtiva { get; }
         string DescricaoOperacao { get; }
         bool HabilitarTexto { get; }
         bool NaoEstaEditando { get; }
         bool EstaEditando { get; }
-        TipoEntidadeFinanceira ItemSelecionado { get; set; }
+        TipoInvestimento ItemSelecionado { get; set; }
         string NomeEmEdicao { get; set; }
         string NomeEmExibicao { get; set; }
-        BindingList<TipoEntidadeFinanceira> ItemCollection { get; }
+        BindingList<TipoInvestimento> ItemCollection { get; }
 
         bool NomeInvalido { get; }
         bool NomeValido { get; }

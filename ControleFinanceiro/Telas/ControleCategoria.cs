@@ -81,9 +81,9 @@ namespace ControleFinanceiro.Telas
             {
                 var linhaSelecionada = dtgCategoria.SelectedRows[0];
 
-                Categoria categoria = linhaSelecionada.DataBoundItem as Categoria;
+                Categoria itemSelecionado = linhaSelecionada.DataBoundItem as Categoria;
 
-                _viewModel.ItemSelecionado = categoria;
+                _viewModel.ItemSelecionado = itemSelecionado;
             }
             else
             {

@@ -11,5 +11,15 @@ namespace CF.InfraData.Repository
         public EntidadeFinanceiraRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
+
+        public IEnumerable<TipoEntidadeFinanceira> ObterListaTipoEntidadeFinanceira()
+        {
+            var tipoEntidadeFinanceiraCollection = new List<TipoEntidadeFinanceira>();
+
+            tipoEntidadeFinanceiraCollection.Add(new TipoEntidadeFinanceira { PK_TipoEntidadeFinanceira = 1, Nome = "Comum" });
+            tipoEntidadeFinanceiraCollection.Add(new TipoEntidadeFinanceira { PK_TipoEntidadeFinanceira = 2, Nome = "Investimento" });
+
+            return tipoEntidadeFinanceiraCollection;
+        }
     }
 }

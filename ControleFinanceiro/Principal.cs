@@ -1,4 +1,5 @@
-﻿using ControleFinanceiro.Telas;
+﻿using CF.Domain.Entity;
+using ControleFinanceiro.Telas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,12 +40,12 @@ namespace ControleFinanceiro
                 ExibirMensagem(ex.Message);
             }
         }
-        private void btnTipoEntidadeFinanceira_Click(object sender, EventArgs e)
+        private void btnTipoInvestimento_Click(object sender, EventArgs e)
         {
             try
             {
-                ControleTipoEntidadeFinanceira controleTipoEntidadeFinanceira = new ControleTipoEntidadeFinanceira();
-                controleTipoEntidadeFinanceira.ShowDialog();
+                ControleTipoInvestimento tipoInvestimento = new ControleTipoInvestimento();
+                tipoInvestimento.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -59,5 +60,7 @@ namespace ControleFinanceiro
             MessageBox.Show(mensagem);
         }
         #endregion
+
+
     }
 }

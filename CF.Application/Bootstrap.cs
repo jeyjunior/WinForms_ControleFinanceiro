@@ -17,9 +17,7 @@ namespace CF.Application
             BootstrapData.RegistrarServicos(services);
 
             services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
-            services.AddSingleton<ITipoEntidadeFinanceiraRepository, TipoEntidadeFinanceiraRepository>();
             services.AddSingleton<ICategoriaRepository, CategoriaRepository>();
-            services.AddSingleton<ITipoTransacaoRepository, TipoTransacaoRepository>();
             services.AddSingleton<ITipoInvestimentoRepository, TipoInvestimentoRepository>();
             services.AddSingleton<IAtivoFinanceiroRepository, AtivoFinanceiroRepository>();
             services.AddSingleton<IEntidadeFinanceiraRepository, EntidadeFinanceiraRepository>();

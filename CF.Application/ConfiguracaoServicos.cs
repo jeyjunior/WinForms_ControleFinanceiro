@@ -29,14 +29,8 @@ namespace CF.Application
                     if (!uow.Connection.VerificarTabelaExistente<Usuario>())
                         uow.Connection.CriarTabela(typeof(Usuario));
 
-                    if (!uow.Connection.VerificarTabelaExistente<TipoTransacao>())
-                        uow.Connection.CriarTabela(typeof(TipoTransacao));
-
                     if (!uow.Connection.VerificarTabelaExistente<TipoInvestimento>())
                         uow.Connection.CriarTabela(typeof(TipoInvestimento));
-
-                    if (!uow.Connection.VerificarTabelaExistente<TipoEntidadeFinanceira>())
-                        uow.Connection.CriarTabela(typeof(TipoEntidadeFinanceira));
 
                     if (!uow.Connection.VerificarTabelaExistente<Categoria>())
                         uow.Connection.CriarTabela(typeof(Categoria));

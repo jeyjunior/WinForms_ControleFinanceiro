@@ -1,23 +1,24 @@
-﻿using System;
+﻿using CF.Domain.Entity;
+using CF.Domain.Enumeradores;
+using CF.Domain.Interfaces;
+using CF.Domain.Interfaces.ViewModel;
+using CF.InfraData.Repository;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using CF.Domain.Interfaces.ViewModel;
-using CF.Domain.Entity;
-using CF.Domain.Enumeradores;
-using CF.Domain.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CF.ViewModel.ViewModel
 {
-    public class TipoEntidadeFinanceiraVM : ViewModelBase, ITipoEntidadeFinanceiraVM
+    public class TipoInvestimentoVM : ViewModelBase, ITipoInvestimentoVM
     {
-        private readonly ITipoEntidadeFinanceiraRepository _tipoEntidadeFinanceiraRepository;
+        private readonly ITipoInvestimentoRepository _tipoInvestimentoRepository;
 
-        public TipoEntidadeFinanceiraVM()
+        public TipoInvestimentoVM()
         {
-            _tipoEntidadeFinanceiraRepository = Bootstrap.ServiceProvider.GetRequiredService<ITipoEntidadeFinanceiraRepository>();
+            _tipoInvestimentoRepository = Bootstrap.ServiceProvider.GetRequiredService<ITipoInvestimentoRepository>();
 
             DefinirPadraoInicial();
         }
@@ -35,12 +36,12 @@ namespace CF.ViewModel.ViewModel
                 OnPropertyChanged(nameof(NomeEmExibicao));
             }
         }
-
+        
         private string _descricaoOperacao;
         public string DescricaoOperacao { get => _descricaoOperacao; }
-
-        public bool HabilitarBotoes
-        {
+        
+        public bool HabilitarBotoes 
+        { 
             get
             {
                 return ItemCollection.Count > 0;
@@ -54,11 +55,11 @@ namespace CF.ViewModel.ViewModel
         public bool NaoEstaEditando { get => !EstaEditando; }
         public bool EstaEditando
         {
-            get => _tipoOperacao != eTipoOperacao.Visualizar;
+            get => _tipoOperacao != eTipoOperacao.Visualizar; 
         }
 
-        private TipoEntidadeFinanceira _itemSelecionado;
-        public TipoEntidadeFinanceira ItemSelecionado
+        private TipoInvestimento _itemSelecionado;
+        public TipoInvestimento ItemSelecionado
         {
             get => _itemSelecionado;
             set
@@ -68,7 +69,7 @@ namespace CF.ViewModel.ViewModel
                 OnPropertyChanged(nameof(NomeEmExibicao));
             }
         }
-
+        
         private string _nomeEmEdicao;
         public string NomeEmEdicao
         {
@@ -90,7 +91,7 @@ namespace CF.ViewModel.ViewModel
             {
                 if (EstaEditando)
                     return NomeEmEdicao;
-
+                
                 return ItemSelecionado?.Nome ?? "";
             }
             set
@@ -101,8 +102,8 @@ namespace CF.ViewModel.ViewModel
         }
 
 
-        private BindingList<TipoEntidadeFinanceira> _itemCollection;
-        public BindingList<TipoEntidadeFinanceira> ItemCollection
+        private BindingList<TipoInvestimento> _itemCollection;
+        public BindingList<TipoInvestimento> ItemCollection
         {
             get => _itemCollection;
         }
@@ -119,26 +120,26 @@ namespace CF.ViewModel.ViewModel
         public void Salvar()
         {
             int ret = 0;
-            TipoEntidadeFinanceira tipoEntidadeFinanceira;
+            TipoInvestimento tipoInvestimento;
 
             switch (TipoOperacaoAtiva)
             {
                 case eTipoOperacao.Visualizar:
                     break;
                 case eTipoOperacao.Adicionar:
-                    tipoEntidadeFinanceira = new TipoEntidadeFinanceira { Nome = NomeEmEdicao };
-                    ret = _tipoEntidadeFinanceiraRepository.Adicionar(tipoEntidadeFinanceira);
+                    tipoInvestimento = new TipoInvestimento { Nome = NomeEmEdicao };
+                    ret = _tipoInvestimentoRepository.Adicionar(tipoInvestimento);
 
                     break;
                 case eTipoOperacao.Editar:
 
-                    tipoEntidadeFinanceira = ItemSelecionado;
-                    tipoEntidadeFinanceira.Nome = NomeEmEdicao;
-                    ret = _tipoEntidadeFinanceiraRepository.Atualizar(tipoEntidadeFinanceira);
+                    tipoInvestimento = ItemSelecionado;
+                    tipoInvestimento.Nome = NomeEmEdicao;
+                    ret = _tipoInvestimentoRepository.Atualizar(tipoInvestimento);
 
                     break;
                 case eTipoOperacao.Excluir:
-                    ret = _tipoEntidadeFinanceiraRepository.Deletar(ItemSelecionado.PK_TipoEntidadeFinanceira);
+                    ret = _tipoInvestimentoRepository.Deletar(ItemSelecionado.PK_TipoInvestimento);
 
                     break;
                 case eTipoOperacao.Salvar:
@@ -155,16 +156,16 @@ namespace CF.ViewModel.ViewModel
         private void AtualizarColecao()
         {
             if (_itemCollection == null)
-                _itemCollection = new BindingList<TipoEntidadeFinanceira>();
+                _itemCollection = new BindingList<TipoInvestimento>();
 
             if (_itemCollection.Count > 0)
                 _itemCollection.Clear();
 
-            var itens = _tipoEntidadeFinanceiraRepository.ObterLista();
+            var itens = _tipoInvestimentoRepository.ObterLista();
             foreach (var item in itens)
                 _itemCollection.Add(item);
         }
-        public void ValidarNome()
+        public void ValidarNome() 
         {
             if (TipoOperacaoAtiva == eTipoOperacao.Adicionar || TipoOperacaoAtiva == eTipoOperacao.Editar)
             {

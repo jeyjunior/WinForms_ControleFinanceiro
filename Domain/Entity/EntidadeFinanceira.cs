@@ -11,7 +11,7 @@ namespace CF.Domain.Entity
         [ChavePrimaria]
         public long PK_EntidadeFinanceira { get; set; }
 
-        [Obrigatorio, Relacionamento("TipoEntidadeFinanceira", "PK_TipoEntidadeFinanceira")]
+        [Obrigatorio]
         public int FK_TipoEntidadeFinanceira { get; set; }
 
         [Obrigatorio, Relacionamento("Categoria", "PK_Categoria")]
