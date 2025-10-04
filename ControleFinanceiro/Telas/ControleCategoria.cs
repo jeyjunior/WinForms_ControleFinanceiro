@@ -7,11 +7,11 @@ using Domain.Entity;
 
 namespace ControleFinanceiro.Telas
 {
-    public partial class Categoria : Form
+    public partial class ControleCategoria : Form
     {
         private readonly ICategoriaVM _viewModel;
 
-        public Categoria()
+        public ControleCategoria()
         {
             InitializeComponent();
 
@@ -37,6 +37,8 @@ namespace ControleFinanceiro.Telas
             txtNomeCategoria.DataBindings.Add("Enabled", _viewModel, "HabilitarTexto");
 
             dgvCategorias.DataSource = _viewModel.CategoriaCollection;
+
+            _viewModel.DefinirPadraoInicial();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -56,7 +58,17 @@ namespace ControleFinanceiro.Telas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            _viewModel.HabilitarOperacao(Domain.Enumeradores.eTipoOperacao.Visualizar);
+            Categoria categoria = new Categoria
+            {
+                PK_Categoria = 0,
+                Nome = txtNomeCategoria.Text,
+                FK_Usuario = null
+            };
+
+            if (_viewModel.TipoOperacaoAtiva != Domain.Enumeradores.eTipoOperacao.Adicionar)
+                categoria.PK_Categoria = _viewModel.CategoriaSelecionada.PK_Categoria;
+
+            _viewModel.Salvar(categoria);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

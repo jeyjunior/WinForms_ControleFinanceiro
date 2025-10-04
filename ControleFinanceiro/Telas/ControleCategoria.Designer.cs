@@ -1,6 +1,6 @@
 ﻿namespace ControleFinanceiro.Telas
 {
-    partial class Categoria
+    partial class ControleCategoria
     {
         /// <summary>
         /// Required designer variable.

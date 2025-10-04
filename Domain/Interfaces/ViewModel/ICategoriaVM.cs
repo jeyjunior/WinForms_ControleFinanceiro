@@ -19,5 +19,7 @@ namespace CF.Domain.Interfaces.ViewModel
         bool HabilitarBotoes { get; }
         bool HabilitarTexto { get;  }
         Categoria CategoriaSelecionada { get; set; }
+        void Salvar(Categoria categoria);
+        void DefinirPadraoInicial();
     }
 }

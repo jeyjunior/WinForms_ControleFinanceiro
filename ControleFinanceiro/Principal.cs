@@ -30,7 +30,7 @@ namespace ControleFinanceiro
         {
             try
             {
-                Categoria categoria = new Categoria();
+                ControleCategoria categoria = new ControleCategoria();
                 categoria.ShowDialog();
             }
             catch (Exception ex)

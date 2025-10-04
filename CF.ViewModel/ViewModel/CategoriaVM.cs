@@ -19,15 +19,12 @@ namespace CF.ViewModel.ViewModel
         {
             _categoriaRepository = Bootstrap.ServiceProvider.GetRequiredService<ICategoriaRepository>();
 
-            ConfiguracaoInicial();
+            DefinirPadraoInicial();
         }
 
-        private void ConfiguracaoInicial()
+        public void DefinirPadraoInicial()
         {
-            var categorias = _categoriaRepository.ObterLista();
-            foreach (var item in categorias)
-                _categoriaCollection.Add(item);
-            
+            AtualizarColecao();
             HabilitarOperacao(eTipoOperacao.Visualizar);
         }
         
@@ -75,7 +72,7 @@ namespace CF.ViewModel.ViewModel
                 OnPropertyChanged(nameof(NomeCategoriaSelecionada));
             }
         }
-        public string NomeCategoriaSelecionada 
+        public string NomeCategoriaSelecionada
         {
             get 
             {
@@ -89,12 +86,11 @@ namespace CF.ViewModel.ViewModel
             } 
         }
 
-        private BindingList<Categoria> _categoriaCollection = new BindingList<Categoria>();
+        private BindingList<Categoria> _categoriaCollection;
         public BindingList<Categoria> CategoriaCollection
         {
             get => _categoriaCollection;
         }
-        
         public void HabilitarOperacao(eTipoOperacao tipoOperacao)
         {
             TipoOperacaoAtiva = tipoOperacao;
@@ -125,6 +121,50 @@ namespace CF.ViewModel.ViewModel
             OnPropertyChanged(nameof(DescricaoOperacao));
             OnPropertyChanged(nameof(HabilitarBotoes));
             OnPropertyChanged(nameof(HabilitarTexto));
+        }
+        public void Salvar(Categoria categoria)
+        {
+            int ret = 0;
+
+            switch (TipoOperacaoAtiva)
+            {
+                case eTipoOperacao.Visualizar:
+                    break;
+                case eTipoOperacao.Adicionar:
+
+                    ret = _categoriaRepository.Adicionar(categoria);
+
+                    break;
+                case eTipoOperacao.Editar:
+                    ret = _categoriaRepository.Atualizar(categoria);
+                    
+                    break;
+                case eTipoOperacao.Excluir:
+                    ret = _categoriaRepository.Deletar(categoria.PK_Categoria);
+
+                    break;
+                case eTipoOperacao.Salvar:
+                    break;
+                case eTipoOperacao.Cancelar:
+                    break;
+                default:
+                    break;
+            }
+
+            AtualizarColecao();
+            HabilitarOperacao(eTipoOperacao.Visualizar);
+        }
+        private void AtualizarColecao()
+        {
+            if (_categoriaCollection == null)
+                _categoriaCollection = new BindingList<Categoria>();
+
+            if (_categoriaCollection.Count > 0)
+                _categoriaCollection.Clear();
+
+            var categorias = _categoriaRepository.ObterLista();
+            foreach (var item in categorias)
+                _categoriaCollection.Add(item);
         }
     }
 }
