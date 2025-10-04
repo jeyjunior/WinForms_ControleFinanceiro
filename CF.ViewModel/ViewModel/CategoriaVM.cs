@@ -22,8 +22,6 @@ namespace CF.ViewModel.ViewModel
             DefinirPadraoInicial();
         }
 
-
-        
         private eTipoOperacao _tipoOperacao;
         public eTipoOperacao TipoOperacaoAtiva
         {
@@ -38,7 +36,6 @@ namespace CF.ViewModel.ViewModel
             }
         }
         
-
         private string _descricaoOperacao;
         public string DescricaoOperacao { get => _descricaoOperacao; }
         
@@ -60,7 +57,6 @@ namespace CF.ViewModel.ViewModel
             get => _tipoOperacao != eTipoOperacao.Visualizar; 
         }
 
-        
         private Categoria _categoriaSelecionada;
         public Categoria CategoriaSelecionada
         {
@@ -84,8 +80,8 @@ namespace CF.ViewModel.ViewModel
                 if (EstaEditando)
                 {
                     OnPropertyChanged(nameof(NomeCategoriaDisplay));
+                    ValidarNome();
                 }
-                ValidarNome();
             }
         }
         public string NomeCategoriaDisplay
@@ -112,7 +108,7 @@ namespace CF.ViewModel.ViewModel
         }
 
 
-        private bool _nomeInvalido = true;
+        private bool _nomeInvalido = false;
         public bool NomeInvalido { get => _nomeInvalido; }
         public bool NomeValido { get => !_nomeInvalido; }
         public void DefinirPadraoInicial()
